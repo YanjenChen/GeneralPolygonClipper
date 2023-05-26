@@ -76,9 +76,12 @@ double Polygon::area(void) {
     double a = 0;
     for (int i = 0; i < tristrip_.num_strips; i++) {
         auto& strip = tristrip_.strip[i];
-        a += 0.5 * (strip.vertex[0].x * (strip.vertex[1].y - strip.vertex[2].y) +
-                    strip.vertex[1].x * (strip.vertex[2].y - strip.vertex[0].y) +
-                    strip.vertex[2].x * (strip.vertex[0].y - strip.vertex[1].y));
+        for (int j = 0; j < strip.num_vertices - 2; j++) {
+            a += 0.5 *
+                 std::fabs(strip.vertex[j].x * (strip.vertex[j + 1].y - strip.vertex[j + 2].y) +
+                           strip.vertex[j + 1].x * (strip.vertex[j + 2].y - strip.vertex[j].y) +
+                           strip.vertex[j + 2].x * (strip.vertex[j].y - strip.vertex[j + 1].y));
+        }
     }
     return a;
 }
