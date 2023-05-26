@@ -1,6 +1,7 @@
 #include "gpcpp.h"
 
 #include <cassert>
+#include <iostream>
 
 namespace gpcpp {
 
@@ -65,6 +66,15 @@ void Polygon::UpdateTristrip(void) {
         gpc_free_tristrip(&tristrip_);
     }
     gpc_polygon_to_tristrip(&polygon_, &tristrip_);
+}
+
+void Polygon::PrintVertices(void) {
+    assert(polygon_.num_contours == 1);
+    auto& contour = polygon_.contour[0];
+    for (int j = 0; j < contour.num_vertices; j++) {
+        std::cout << "[" << contour.vertex[j].x << ", " << contour.vertex[j].y << "], ";
+    }
+    std::cout << std::endl;
 }
 
 /**

@@ -26,6 +26,7 @@ class Polygon {
 
     void Clear(void);
     void UpdateTristrip(void);
+    void PrintVertices(void);
 
     // Getters
     int num_contours(void) const { return polygon_.num_contours; }
