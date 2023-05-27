@@ -58,6 +58,9 @@ class Rectangle : public Polygon {
 
     void Set(double x, double y, double width, double height, double angle);
 
+    // Getters
+    std::pair<double, double> vertex(int i);
+
    private:
     void UpdateVertices(void);
 };

@@ -155,6 +155,17 @@ void Rectangle::Set(double x, double y, double width, double height, double angl
 }
 
 /**
+ * @brief Get the vertices of the rectangle
+ *
+ * @param i
+ * @return std::pair<double, double>
+ */
+std::pair<double, double> Rectangle::vertex(int i) {
+    assert(i >= 0 && i < 4);
+    return std::make_pair(polygon_.contour[0].vertex[i].x, polygon_.contour[0].vertex[i].y);
+}
+
+/**
  * @brief Update the vertices of the rectangle
  *
  */
