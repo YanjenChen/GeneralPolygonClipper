@@ -23,6 +23,9 @@ endif()
 add_library(gpc STATIC "gpc.c" "gpc.h")
 target_include_directories(gpc PUBLIC "${CMAKE_CURRENT_LIST_DIR}")
 
+add_library(fcpc STATIC "fcpc.cc" "fcpc.h")
+target_include_directories(fcpc PUBLIC "${CMAKE_CURRENT_LIST_DIR}")
+
 ### Compile wrapper code ###
 add_library(gpcpp STATIC "gpcpp.cc" "gpcpp.h")
 target_include_directories(gpcpp PUBLIC "${CMAKE_CURRENT_LIST_DIR}")
@@ -31,5 +34,5 @@ target_link_libraries(gpcpp PRIVATE gpc)
 ### Compile test code ###
 add_executable(test_gpc "test.cc")
 target_include_directories(test_gpc PRIVATE "${CMAKE_CURRENT_LIST_DIR}")
-target_link_libraries(test_gpc PRIVATE gpcpp)
+target_link_libraries(test_gpc PRIVATE gpcpp fcpc)
 
