@@ -95,6 +95,7 @@ class Rectangle : public PolygonBase<4> {
     double angle_;
 
    public:
+    Rectangle() : x_(0), y_(0), width_(0), height_(0), angle_(0) {}
     Rectangle(double x, double y, double width, double height, double angle);
     Rectangle(const Rectangle&) = default;
     Rectangle(Rectangle&&) = default;
