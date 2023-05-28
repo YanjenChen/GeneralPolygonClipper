@@ -29,6 +29,7 @@ class PolygonBase {
     int num_vertices_;
 
     PolygonBase() : num_vertices_(0) {}
+    PolygonBase(int num_vertices) : num_vertices_(num_vertices) {}
     PolygonBase(const PolygonBase&) = default;
     PolygonBase(PolygonBase&&) = default;
     PolygonBase& operator=(const PolygonBase&) = default;
@@ -95,7 +96,7 @@ class Rectangle : public PolygonBase<4> {
     double angle_;
 
    public:
-    Rectangle() : x_(0), y_(0), width_(0), height_(0), angle_(0) {}
+    Rectangle() : PolygonBase(4), x_(0), y_(0), width_(0), height_(0), angle_(0) {}
     Rectangle(double x, double y, double width, double height, double angle);
     Rectangle(const Rectangle&) = default;
     Rectangle(Rectangle&&) = default;

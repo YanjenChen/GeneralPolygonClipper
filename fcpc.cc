@@ -15,8 +15,7 @@ namespace fcpc {
  * @param angle
  */
 Rectangle::Rectangle(double x, double y, double width, double height, double angle)
-    : x_(x), y_(y), width_(width), height_(height), angle_(angle) {
-    num_vertices_ = 4;
+    : PolygonBase(4), x_(x), y_(y), width_(width), height_(height), angle_(angle) {
     UpdateVertices();
 }
 
